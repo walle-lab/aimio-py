@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.2 — 2026-10-07
+## 0.4.2 — 2026-11-17
 
 - Read GOBJs whose empty slice records (width and height 0) carry 0 instead of 3 in field 7 (written by some Scanco exports), which previously failed with "Unsupported GOBJ contour structure at byte 512". Non-empty slice records still require 3, and the other record fields are still checked.
 - Read GOBJ header dimensions from bytes 44-55 (voxels) and 56-67 (µm), as in the ISQ/RAD CTDATA header, instead of 32-43 and 44-55. The old offsets read the scanner ID and creation date, so `spacing`, `origin` and `crop="header"` geometry were wrong for scanner-written GOBJs; decoded masks and voxel `position` are unchanged.
